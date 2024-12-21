@@ -13,15 +13,16 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name = "students_classes")
 public class StudentClass {
+
     @Id
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private User student;
+    @JoinColumn(name = "profile_id", nullable = false)
+    private Profile profile; // Đổi từ User sang Profile
 
     @Id
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Classes classesEntity;
 
     // Getters and Setters
 }

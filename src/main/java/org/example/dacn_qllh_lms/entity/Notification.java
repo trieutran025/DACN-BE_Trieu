@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,8 +22,8 @@ public class Notification {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "profile_id", referencedColumnName = "profile_id", nullable = false)
+    private Profile profile; // Đổi từ User sang Profile
 
     @Column(name = "message", nullable = false)
     private String message;
@@ -33,7 +32,6 @@ public class Notification {
     private Boolean readStatus = false;
 
     @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime createdAt;
-
-    // Getters and Setters
 }

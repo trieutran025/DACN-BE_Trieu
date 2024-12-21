@@ -3,11 +3,7 @@ package org.example.dacn_qllh_lms.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.security.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -26,7 +22,7 @@ public class Assignment {
 
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Classes classesEntity;
 
     @Column(name = "title", nullable = false)
     private String title;

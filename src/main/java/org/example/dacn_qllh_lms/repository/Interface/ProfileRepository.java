@@ -25,7 +25,7 @@ public interface ProfileRepository extends JpaRepository<Profile,Long> {
             countQuery = "SELECT COUNT(*) " +
                     "FROM profiles p " +
                     "JOIN users u ON p.users_id = u.users_id " +
-                    "JOIN users_roles ur ON u.users_id =     ur.user_id " +
+                    "JOIN users_roles ur ON u.users_id = ur.user_id " +
                     "JOIN roles r ON ur.role_id = r.role_id " +
                     "WHERE r.role_name IN ('instructor', 'student')",
             nativeQuery = true

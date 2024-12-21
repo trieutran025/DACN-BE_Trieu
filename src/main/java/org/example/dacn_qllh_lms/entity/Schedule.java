@@ -3,9 +3,7 @@ package org.example.dacn_qllh_lms.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.CreationTimestamp;
 
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -24,7 +22,7 @@ public class Schedule {
 
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class classEntity;
+    private Classes classesEntity;
 
     @Column(name = "lesson_title", nullable = false)
     private String lessonTitle;

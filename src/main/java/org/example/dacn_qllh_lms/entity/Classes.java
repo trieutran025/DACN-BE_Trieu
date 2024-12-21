@@ -3,11 +3,7 @@ package org.example.dacn_qllh_lms.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import java.security.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -18,7 +14,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "classes")
-public class Class {
+public class Classes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "class_id")
@@ -40,8 +36,10 @@ public class Class {
     private LocalDateTime endDate;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private User teacher;
+    @JoinColumn(name = "teacher_id", referencedColumnName = "profile_id", nullable = false) // Trỏ tới profile_id trong Profile
+    private Profile teacher;
+
+
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

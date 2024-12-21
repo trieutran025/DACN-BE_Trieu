@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -39,6 +40,10 @@ public class Profile {
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Classes> classes;
+
+
 
     // Getters and Setters
 }

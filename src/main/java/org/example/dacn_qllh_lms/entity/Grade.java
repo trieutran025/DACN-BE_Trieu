@@ -6,7 +6,6 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -23,22 +22,21 @@ public class Grade {
     @Column(name = "grade_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private User student;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", referencedColumnName = "profile_id", nullable = false)
+    private Profile student; // Đổi từ User thành Profile
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assignment_id", nullable = false)
     private Assignment assignment;
 
-    @Column(name = "grade")
-    private Double grade;
+    @Column(name = "grade", precision = 5, scale = 2)
+    private BigDecimal grade;
 
     @Column(name = "feedback")
     private String feedback;
 
     @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime createdAt;
-
-    // Getters and Setters
 }

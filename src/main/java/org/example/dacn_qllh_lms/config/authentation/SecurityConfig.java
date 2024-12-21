@@ -50,7 +50,8 @@ public class SecurityConfig {
             "/api/roles/**",           // Quản lý vai trò
             "/api/permissions/**",     // Quản lý quyền
             "/api/notifications/**",// Quản lý thông báo
-            "/api/dashboard-stats"
+            "/api/dashboard-stats",
+            "/api/classes/"
 //            "/api/reports/**"          // Báo cáo, thống kê hệ thống
     };
 
